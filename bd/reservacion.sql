@@ -15,12 +15,16 @@ CREATE TABLE usuarios (
 /*TABLA RESERVACION*/
 CREATE TABLE reservacion (
 		idreservacion INT NOT NULL AUTO_INCREMENT,
-		fecha_h_res DATETIME NOT NULL,
+		fecha_res DATE NOT NULL,
+                hora_res TIME NOT NULL,
 		cantidad_res INT NOT NULL,
 		idusuario INT NOT NULL,
+                idpaquete INT NOT NULL,
 		PRIMARY KEY (idreservacion),
-	CONSTRAINT idusuario_fk FOREIGN KEY (idusuario) REFERENCES usuarios (idusuario)
-ON DELETE CASCADE ON UPDATE CASCADE);
+      CONSTRAINT idusuario_fk FOREIGN KEY (idusuario) REFERENCES usuarios (idusuario)
+          ON DELETE CASCADE ON UPDATE CASCADE,
+      CONSTRAINT idpaquete_fk FOREIGN KEY (idpaquete) REFERENCES paquetes (idpaquete)
+          ON UPDATE CASCADE ON DELETE CASCADE);
 
 /*TABLA PAQUETES*/
 CREATE TABLE paquetes (
@@ -31,7 +35,7 @@ CREATE TABLE paquetes (
 		PRIMARY KEY (idpaquete)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*TABLA PEDIDO*/
+/*TABLA PEDIDO
 CREATE TABLE pedido (
 		idpedido INT NOT NULL AUTO_INCREMENT,
 		idreservacion INT NOT NULL,
@@ -42,5 +46,5 @@ CREATE TABLE pedido (
         ON UPDATE CASCADE ON DELETE CASCADE,
 	CONSTRAINT idreservacion_fk FOREIGN KEY (idreservacion) REFERENCES reservacion (idreservacion)
         ON DELETE CASCADE ON UPDATE CASCADE);
-
+*/
 INSERT INTO usuarios VALUES(NULL, 'admin', '1234', 2)

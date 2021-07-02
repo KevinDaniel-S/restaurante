@@ -50,7 +50,7 @@ include_once "../includes/navbar.php";
                                         $("#dataTabla").load("../tabla.php");
                                         alertify.success("EL REGISTRO SE AGREGO A LA BASE DE DATOS");
                                 } else {                                    
-                                        alertify.error("LA FECHA SE ENCUENTRA OCUPADA O HUBO PROBLEMAS CON EL REGISTRO");
+                                        alertify.error(respuesta);
                                 }
                         }
                 });
