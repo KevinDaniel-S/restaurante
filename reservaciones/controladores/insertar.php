@@ -12,13 +12,14 @@ $sqlbuscaFecha = "SELECT count(fecha_h_res) as total FROM reservacion WHERE SUBS
 $result        = $cn->query($sqlbuscaFecha);
 $data          = $result->fetch_assoc();
 $id            = $_SESSION['id'];
-    $sqlInsertar = "INSERT INTO reservacion VALUES($idreservacion, '$fecha', $cantidad, $id)";
-    $sqlInsertarPedido = "INSERT INTO pedido VALUES(NULL,$idreservacion,$idpaquete, $id)";
+
+$sqlInsertar = "INSERT INTO reservacion VALUES($idreservacion, '$fecha', $cantidad, $id)";
+$sqlInsertarPedido = "INSERT INTO pedido VALUES(NULL,$idreservacion,$idpaquete, $id)";
 
 $val = 0;
 if($data['total'] == 0){
     if($cn->query($sqlInsertar) && $cn->query($sqlInsertarPedido)){
-        $val = 1;
+        $val = 200;
     }else{
         $val = 0;
     }

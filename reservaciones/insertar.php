@@ -19,7 +19,7 @@
             <div class="form-group">
                 <label for="fechains">FECHA </label>
                 <input type="date" class="form-group" 
-                title="El formato es YYYY-MM-DD HH:MM"                
+                title="El formato es YYYY-MM-DD"                
                 name="fechains" id="fechains">
             </div>                
             <div class="form-group">

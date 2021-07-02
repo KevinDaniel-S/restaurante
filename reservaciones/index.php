@@ -42,7 +42,7 @@ include_once "../includes/navbar.php";
                         data: datos,
                         url: "controladores/insertar.php",
                         success: function(respuesta){
-                                if(respuesta == 1){                                     
+                                if(respuesta == 200){                                     
                                         $("#idreservacionins").val("");                                        
                                         $("#fechains").val("");                                        
                                         $("#cantidadins").val("");
