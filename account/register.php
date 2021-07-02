@@ -19,7 +19,23 @@ if(isset($_POST['registrarse'])){
 
       $sqlInsertar = "INSERT INTO usuarios VALUES (NULL,'$usuario', $pass, 0)";
       $cn->query($sqlInsertar);
-      $msg_sql = $cn->error;
+      if($cn->error){
+        $msg_sql = $cn->error;
+      } else {
+        $sqlLogin = "SELECT idUsuario, nombre_us, puesto_us FROM usuarios WHERE nombre_us = '$usuario' AND password_us = '$pass' ";
+        $result = $cn->query($sqlLogin);
+        $row    = $result->fetch_array();
+        $id     = $row['idUsuario'];
+        $user   = $row['nombre_us'];
+        $puesto = $row['puesto_us'];
+
+        $_SESSION['id']     = $id;
+        $_SESSION["user"]   = $user;
+        $_SESSION["puesto"] = $puesto;
+        $_SESSION["logged"] = true;
+
+        header("Location: ../index.php");
+      }
   } else {
 
     $msg = "Las contraseñas no concuerdan"; 
