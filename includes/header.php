@@ -15,7 +15,9 @@ foreach ($uri as $dir){
 }
 
 $URI = implode("/", $URI);
-
+if($URI == "/"){
+  $URI = "";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
