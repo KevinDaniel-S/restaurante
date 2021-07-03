@@ -6,7 +6,7 @@ include_once "../bd/conexion.php";
 
 $cn = conexion();
 
-if(!$_SESSION['logged']){
+if($_SESSION['logged']){
   header("Location: ../index.php");
 }
 
