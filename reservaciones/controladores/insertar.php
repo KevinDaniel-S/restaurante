@@ -42,9 +42,10 @@ if(!$error){
   }
 }
 if(!$error){
-  $sqlbuscaFecha = "SELECT count(fecha_h_res) as total FROM reservacion WHERE fecha_h_res = '$fecha'";
+  $sqlbuscaFecha = "SELECT count(fecha_res) as total FROM reservacion WHERE fecha_res = '$fecha'";
 
   $result        = $cn->query($sqlbuscaFecha);
+  
   $data          = $result->fetch_assoc();
   $usuario       = $_SESSION['id'];
 

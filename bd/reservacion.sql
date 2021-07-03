@@ -12,6 +12,15 @@ CREATE TABLE usuarios (
 		PRIMARY KEY (idusuario)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+/*TABLA PAQUETES*/
+CREATE TABLE paquetes (
+		idpaquete INT NOT NULL AUTO_INCREMENT,
+		nombre_paq CHAR (50) NOT NULL,
+		descripcion_paq CHAR (50) NOT NULL,
+		costo_paq INT NOT NULL,
+		PRIMARY KEY (idpaquete)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 /*TABLA RESERVACION*/
 CREATE TABLE reservacion (
 		idreservacion INT NOT NULL AUTO_INCREMENT,
@@ -25,15 +34,6 @@ CREATE TABLE reservacion (
           ON DELETE CASCADE ON UPDATE CASCADE,
       CONSTRAINT idpaquete_fk FOREIGN KEY (idpaquete) REFERENCES paquetes (idpaquete)
           ON UPDATE CASCADE ON DELETE CASCADE);
-
-/*TABLA PAQUETES*/
-CREATE TABLE paquetes (
-		idpaquete INT NOT NULL AUTO_INCREMENT,
-		nombre_paq CHAR (50) NOT NULL,
-		descripcion_paq CHAR (50) NOT NULL,
-		costo_paq INT NOT NULL,
-		PRIMARY KEY (idpaquete)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*TABLA PEDIDO
 CREATE TABLE pedido (

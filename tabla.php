@@ -5,12 +5,12 @@ session_start();
 
 $cn = conexion();
 $id = $_SESSION['id'];
-$sqlSelect = "SELECT  r.idreservacion, r.fecha_h_res, r.cantidad_res, 
-                r.idusuario, pa.nombre_paq, pa.costo_paq, pa.idpaquete, pe.idpedido                       
-                FROM pedido pe
-                INNER JOIN reservacion r ON pe.idreservacion = r.idreservacion
-                INNER JOIN paquetes pa ON pe.idpaquete = pa.idpaquete
-                WHERE pe.acept_rech_ped = $id AND r.idusuario = $id";
+$sqlSelect = "SELECT  r.idreservacion, r.fecha_res, r.hora_res,
+                r.cantidad_res, r.idusuario, 
+                pa.nombre_paq, pa.costo_paq, pa.idpaquete                       
+                FROM reservacion r
+                INNER JOIN paquetes pa ON r.idpaquete = pa.idpaquete
+                WHERE r.idusuario = $id";
 $resultSet = $cn->query($sqlSelect);
 
 ?>
@@ -19,29 +19,31 @@ $resultSet = $cn->query($sqlSelect);
 <table class="table table-condensed table-bordered" id="miTabla">
 <thead>
     <tr>
-        <th>ID RESERVACION</th>
-        <th>FECHA</th>  
-        <th>CANTIDAD MESAS</th>  
-        <th>NOMBRE DEL PAQUETE</th>
-        <th>COSTO</th>
-        <th>EDITAR</th>
-        <th>ELIMINAR</th>
-     
+        <th>Id reservación</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Cantidad de mesas</th>
+        <th>Nombre del paquete</th>
+        <th>Costo</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
     </tr>
 </thead>
 <tbody>
     <?php while($row = $resultSet->fetch_assoc()){  ?>
 <tr>
-    <td><?php echo $row['idpedido'] ?></td>
-    <td><?php echo $row['fecha_h_res'] ?></td>
+    <td><?php echo $row['idreservacion']; ?></td>
+    <td><?php echo $row['fecha_res']; ?></td>
+    <td><?php echo $row['hora_res']; ?>
     <td><?php echo $row['cantidad_res'] ?></td>
     <td><?php echo $row['nombre_paq'] ?></td>
     <td><?php echo $row['costo_paq'] ?></td>    
     <td>
     <span class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editarforma"
     onclick="DatosUpdate(
-    '<?php echo $row['idpedido'] ?>',
-    '<?php echo $row['fecha_h_res'] ?>', 
+    '<?php echo $row['idreservacion'] ?>',
+    '<?php echo $row['fecha_res'] ?>',
+    '<?php echo $row['hora_res'] ?>',
     '<?php echo $row['cantidad_res'] ?>',
     '<?php echo $row['idpaquete'] ?>'   
     )">
@@ -51,7 +53,7 @@ $resultSet = $cn->query($sqlSelect);
     <td>
     <span class="btn btn-danger btn-sm" data-toggle="modal" data-target="#eliminarforma" 
     onclick="DatosDelete(     
-     '<?php echo $row['idpedido'] ?>'      
+     '<?php echo $row['idreservacion'] ?>'      
     )">
     <i class="fa fa-trash" aria-hiden="true"></i>
     </span>
