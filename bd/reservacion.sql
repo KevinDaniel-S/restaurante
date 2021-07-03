@@ -35,16 +35,14 @@ CREATE TABLE reservacion (
       CONSTRAINT idpaquete_fk FOREIGN KEY (idpaquete) REFERENCES paquetes (idpaquete)
           ON UPDATE CASCADE ON DELETE CASCADE);
 
-/*TABLA PEDIDO
-CREATE TABLE pedido (
-		idpedido INT NOT NULL AUTO_INCREMENT,
-		idreservacion INT NOT NULL,
-		idpaquete INT NOT NULL,
-		acept_rech_ped  BOOLEAN NOT NULL,
-		PRIMARY KEY (idpedido),
-	CONSTRAINT idpaquete_fk FOREIGN KEY (idpaquete) REFERENCES paquetes (idpaquete)
-        ON UPDATE CASCADE ON DELETE CASCADE,
-	CONSTRAINT idreservacion_fk FOREIGN KEY (idreservacion) REFERENCES reservacion (idreservacion)
-        ON DELETE CASCADE ON UPDATE CASCADE);
+--Tabla menu
+CREATE TABLE menu (
+		idItem INT NOT NULL AUTO_INCREMENT,
+	        nombre CHAR (50) NOT NULL,
+		precio INT NOT NULL,
+                tamanio CHAR (50),
+                tipo CHAR (50) NOT NULL,
+		PRIMARY KEY (idItem)
+              );
 */
 INSERT INTO usuarios VALUES(NULL, 'admin', '1234', 2)
