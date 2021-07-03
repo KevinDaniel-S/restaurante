@@ -2,6 +2,11 @@
 $tituloPagina = "Usuarios";
 include_once "../includes/header.php";
 include_once "../includes/navbar.php";
+
+if(!$_SESSION['logged'] || $_SESSION['puesto']!=2){
+  header("Location: ../index.php");
+}
+
 ?>
 <div class="container">
   <div class="row">

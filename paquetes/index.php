@@ -2,6 +2,10 @@
 $tituloPagina = "Paquetes";
 include_once "../includes/header.php";
 include_once "../includes/navbar.php";
+
+if(!$_SESSION['logged'] || $_SESSION['puesto']==0){
+  header("Location: ../index.php");
+}
 ?>
 
 <h1>Paquetes</h1>
