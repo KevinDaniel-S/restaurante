@@ -5,7 +5,7 @@ if(!isset($_SESSION['logged']))
 
 $HOST = $_SERVER['REQUEST_URI'];
 $uri  = explode('/', $HOST);
-$valid = array("account", "paquetes", "reservaciones", "usuarios");
+$valid = array("account", "paquetes", "reservaciones", "usuarios", "menu");
 
 $URI = array();
 foreach ($uri as $dir){

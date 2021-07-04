@@ -3,7 +3,7 @@
       <a class="navbar-brand" href="<?php echo $URI ?>/index.php">Mexicanísimo</a>
       <ul class="navbar-nav w-100 justify-content-start">
           <li class="nav-item active">
-              <a class="nav-link" href="<?php echo $URI ?>/menu.php">Menú</a>
+              <a class="nav-link" href="<?php echo $URI ?>/menu/index.php">Menú</a>
           </li>
           <?php if($_SESSION['logged'])  {?>
             <?php if($_SESSION['puesto'] == 0) { ?>

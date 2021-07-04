@@ -35,7 +35,7 @@ CREATE TABLE reservacion (
       CONSTRAINT idpaquete_fk FOREIGN KEY (idpaquete) REFERENCES paquetes (idpaquete)
           ON UPDATE CASCADE ON DELETE CASCADE);
 
---Tabla menu
+/*Tabla menu*/
 CREATE TABLE menu (
 		idItem INT NOT NULL AUTO_INCREMENT,
 	        nombre CHAR (50) NOT NULL,
@@ -44,5 +44,5 @@ CREATE TABLE menu (
                 tipo CHAR (50) NOT NULL,
 		PRIMARY KEY (idItem)
               );
-*/
+
 INSERT INTO usuarios VALUES(NULL, 'admin', '1234', 2)
